@@ -1,6 +1,5 @@
 Men's Roller Derby World Cup
 =====
-##About
 
 This is all of the code used by live.mrdwc.com during the first Men's Roller Derby World Cup in March 2014. The code is in the state it was in after the tournament has finished. Most of the code was written before the tournment, some was written during the tournament.
 
@@ -51,3 +50,8 @@ Using Loader.io I was able to load-test each of the major components that would 
 * **Liberato** - Monitor load on the Heroku apps
 * **Rollbar** - Alerting and monitoring of front-end javascript issues
 * **Loader.io** - Provided load testing of the major components
+* 
+
+#About the Author
+
+John Kershaw, aka Sausage Roller, is a software developer living in the UK. He skates for Manchester Roller Derby's men's A team, New Wheeled Order. He has a personal website that's always out-of-date at http://jkershaw.com. As well as a number of personal and professional projects, he's also responsible for the Roller Derby Test O'Matic (http://rollerderbytestomatic.com/), the Minimum Skills app (available in all good app stores), and Derby Roll Call (http://www.derbyrollcall.com/). 
