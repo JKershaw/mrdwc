@@ -1,0 +1,12 @@
+{
+  "name": "mrdwc-poll",
+  "version": "0.0.1",
+  "dependencies": {
+    "request": "*",
+    "express": "*"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}
