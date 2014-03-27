@@ -1,7 +1,7 @@
 Men's Roller Derby World Cup
 =====
 
-This is all of the code used by live.mrdwc.com during the first Men's Roller Derby World Cup in March 2014. The code is in the state it was in after the tournament has finished. Most of the code was written before the tournment, some was written during the tournament.
+This is all of the code used by live.mrdwc.com during the first Men's Roller Derby World Cup in March 2014. The code is in the state it was in after the tournament has finished. Most of the code was written before the tournament, some was written during the tournament.
 
 I (Sausage Roller, author) will add a license to this code at some point, probably when it's had a spring clean. So, whilst you are free to look at this code and even deploy it if you want,  if you intend to use it in the real world for anything other than a personal project, ask for permission.
 
@@ -11,15 +11,15 @@ If you have any feedback or questions, just ask.
 
 The site was built to be reliable. There's multiple undocumented failsafes allowing all kinds of terrible things to happen and the site stays online. The most basic is the divide between _mrdwc.com_ and _live.mrdwc.com_. The former living in a US East coast data centre and hosted by MediaTemple, the latter existing on European AWS servers via the joyful Heroku.
 
-You'll see there's four different apps that make up the service. Thjis allows for easy scaling and a division of labour. Here's a breif description of each module.
+You'll see there's four different apps that make up the service. This allows for easy scaling and a division of labour. Here's a brief description of each module.
 
 ##mrdwc-live
 
-This is the static website you see when you visit live.mrdwc.com. It's super simple and does nothing dynamically. .All the data is fetched via a browser ajax call to the next module.
+This is the static website you see when you visit live.mrdwc.com. It's super simple and does nothing dynamically. All the data is fetched via a browser ajax call to the next module.
 
 ##mrdwc-query
 
-The horizontal scaling of the site all comes from this module. It has a simple job; return a JSON representation of the current tournament state, to be displayed on the site. This includes current game stats, as well as brackets, tables, and even the text to display on the alternate laguage feed options. The module gets the state from a mongo database (hosted on MongoLab, again in the Euro AWS)
+The horizontal scaling of the site all comes from this module. It has a simple job; return a JSON representation of the current tournament state, to be displayed on the site. This includes current game stats, as well as brackets, tables, and even the text to display on the alternate language feed options. The module gets the state from a mongo database (hosted on MongoLab, again in the Euro AWS)
 
 ##mrdwc-command
 
@@ -33,13 +33,13 @@ This simple little module pokes the mrdwc-command module every few seconds and p
 
 #Tests
 
-You will see from the code, every app has a full set of tests. Test Driven Development is fantastic and everyonre should do it.
+You will see from the code, every app has a full set of tests. Test Driven Development is fantastic and everyone should do it.
 
 Using Loader.io I was able to load-test each of the major components that would need to face a high load. Whilst not made public before the event due to a fear of irony/sod's law, the site was stress tested. The headlines:
 
 * mrdwc.com, the WordPress site hosted by Media Temple for $20/month, could handle around **90 request per second**.
 * live.mrdwc.com could handle the maximum load-test without any real effort, equivalent to around **5,000 pageviews per second**. I have no idea what it's theoretical maximum is.
-* mrdwc-query, used to dynamically update the data displayed on live.mrdwc.com could handle **8,500 requests per second**. Assuming the scoreboards updated once every 10 seconds (I could adjust this dynamically), that's a maximum of **85,000 concurrent users**.
+* mrdwc-query, used to dynamically update the data displayed on live.mrdwc.com could handle 8,500 requests per second. Assuming the scoreboards updated once every 10 seconds (I could adjust this dynamically), that's a maximum of **85,000 concurrent users**.
 
 #Services used
 
