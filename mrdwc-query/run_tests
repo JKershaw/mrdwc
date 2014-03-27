@@ -1,0 +1,24 @@
+pkill node
+set -e
+mocha tests/unit/ --ui qunit --reporter nyan --timeout 5000
+echo "Unit tests complete"
+
+foreman start &
+sleep 1
+mocha tests/integration/ --recursive --ui tdd --reporter nyan --timeout 20000
+echo "Integration tests complete"
+
+pkill node
+jshint ./tests/integration ./tests/unit
+
+echo "All tests passed!"
+
+if [ $# -gt 0  ]; then
+	MESSAGE="$@"
+	echo "Committing with message '$MESSAGE'"
+	git add -A
+	git commit -am "$MESSAGE"
+	git push
+else
+  echo "No commit message, no commit"
+fi
