@@ -36,7 +36,11 @@ This simple little module pokes the mrdwc-command module every few seconds and p
 
 You will see from the code, every app has a full set of tests. Test Driven Development is fantastic and everyonre should do it.
 
-Using Loader.io I was able to load-test each of the major components that would need to face a high load. 
+Using Loader.io I was able to load-test each of the major components that would need to face a high load. Whilst not made public before the event due to a fear of irony/sod's law, the site was stress tested. The headlines:
+
+* mrdwc.com, the WordPress site hosted by Media Temple for $20/month, could handle around **90 request per second**.
+* live.mrdwc.com could handle the maximum load-test without any real effort, equivalent to around **5,000 pageviews per second**. I have no idea what it's theoretical maximum is.
+* mrdwc-query, used to dynamically update the data displayed on live.mrdwc.com could handle **8,500 requests per second**. Assuming the scoreboards updated once every 10 seconds (I could adjust this dynamically), that's a maximum of **85,000 concurrent users**.
 
 #Services used
 
