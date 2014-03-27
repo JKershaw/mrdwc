@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MRDWC Live Admin</title>
+
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	</head>
+	<body>
+
+		<div class="container">
+
+			<h1>Manual data entry for the QSS track</h1>
+
+			<h3>QSS Track: <a href="https://api.rdnation.com/LiveGame/GameJsonMin?id=<%=qss_track_id%>"><span id="qss_track_id"><%=qss_track_id%></span></a></h3>
+			
+			<p><form id='form_qss_track_id' role="form" method='POST' action='/qss_track_id'>
+				New ID: <input id="edit_qss_track_id" name='edit_qss_track_id' type="text" style="width:50%" value="<%=qss_track_id%>"/> <br />
+				<p><small>Leave blank for no game, manual_qss for manual data entry</small></p>
+				<input type="submit" value="Save QSS id" />
+			</form></p>
+
+			<p><strong>Manual state entry:</strong></p>
+
+			<form id='edit_manual_qss_state' role="form" method='POST' action='/manual_qss_state'>
+
+				<p><strong>Title:</strong> <input id="manual_qss_title" name="manual_qss_title" value="<%=qss_track_state.title%>"/></p>
+
+				<p>Team A: <input id="manual_qss_a_name" name="manual_qss_a_name" value="<%=qss_track_state.a.name%>"/> score: <input id="manual_qss_a_score" name="manual_qss_a_score" value="<%=qss_track_state.a.score%>" style="width:50px"/></p>
+				<p>Team B: <input id="manual_qss_b_name" name="manual_qss_b_name" value="<%=qss_track_state.b.name%>"/> score: <input id="manual_qss_b_score" name="manual_qss_b_score" value="<%=qss_track_state.b.score%>" style="width:50px"/></p>
+
+				<p><input type="submit" value="Save manual QSS state" /></p>
+
+			</form>
+
+			<p>Current state:</p>
+			<pre id="qss_state"><%=JSON.stringify(qss_track_state)%></pre>
+
+
+		</div>
+	</body>
+</html>

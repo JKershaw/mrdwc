@@ -1,0 +1,22 @@
+{
+  "name": "mrdwc-command",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.1.x",
+    "mongojs":"0.10.1",
+    "ejs": "0.8.5",
+    "request": "2.34.0"
+  },
+  "devDependencies": {
+    "zombie": "*",
+    "mocha": "*",
+    "chai": "*",
+    "jshint": "*",
+    "request" : "*",
+    "get": "*"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}

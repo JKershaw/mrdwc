@@ -1,0 +1,13 @@
+export MONGO_CONNECTION_STRING=mongodb://localhost/mrdwc
+mongo mrdwc --eval "db.dropDatabase();"
+pkill node
+set -e
+
+foreman start &
+sleep 1
+
+mocha tests/integration/$@ --recursive --ui tdd --reporter nyan --timeout 15000
+echo "Integration tests complete"
+
+pkill node
+jshint ./tests/integration ./tests/unit

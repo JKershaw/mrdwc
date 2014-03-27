@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MRDWC Live Admin</title>
+
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	</head>
+	<body>
+
+		<div class="container">
+
+			<h1>State Age: <span id="state_age"><%=state_age%></span></h1>
+
+			<h1>Tracks</h1>
+
+			<h3>Games</h3>
+			<% for (var i=0; i<tournamentGames.length; i++) { %>
+				<p><small><strong><%=tournamentGames[i].title%></strong> <%=tournamentGames[i].gameID%></small></p>
+			<% } %>
+
+			<h3>RDC Track: <a href="https://api.rdnation.com/LiveGame/GameJsonMin?id=<%=rdc_track_id%>"><span id="rdc_track_id"><%=rdc_track_id%></span></a></h3>
+			
+			<p><form id='form_rdc_track_id' role="form" method='POST' action='/rdc_track_id'>
+				New ID: <input id="edit_rdc_track_id" name='edit_rdc_track_id' type="text" style="width:50%" value="<%=rdc_track_id%>"/> <br />
+				<p><small>Leave blank for no game, manual_rdc for manual data entry</small></p>
+				<input type="submit" value="Save RDC id" />
+			</form></p>
+
+			<p><strong>Current state:</strong></p>
+			<pre id="rdc_state"><%=JSON.stringify(rdc_track_state)%></pre>
+			
+			<p><strong>Manual state entry:</strong></p>
+			<form id='edit_manual_rdc_state' role="form" method='POST' action='/manual_rdc_state'>
+<pre>{
+	"title":"<input id="manual_rdc_title" name="manual_rdc_title" value="<%=rdc_track_state.title%>"/>",
+	"a":{"name":"<input id="manual_rdc_a_name" name="manual_rdc_a_name" value="<%=rdc_track_state.a.name%>"/>","score":"<input id="manual_rdc_a_score" name="manual_rdc_a_score" value="<%=rdc_track_state.a.score%>"/>"},
+	"b":{"name":"<input id="manual_rdc_b_name" name="manual_rdc_b_name" value="<%=rdc_track_state.b.name%>"/>","score":"<input id="manual_rdc_b_score" name="manual_rdc_b_score" value="<%=rdc_track_state.b.score%>"/>"},
+	"period":"0",
+	"jam":"0",
+	"time":"0:00",
+	"period_time":"0:00"
+}</pre>
+<input type="submit" value="Save manual RDC state" />
+
+			</form>
+			
+
+			<h3>QSS Track: <a href="https://api.rdnation.com/LiveGame/GameJsonMin?id=<%=qss_track_id%>"><span id="qss_track_id"><%=qss_track_id%></span></a></h3>
+			<form id='form_qss_track_id' role="form" method='POST' action='/qss_track_id'>
+				New ID: <input id="edit_qss_track_id" name='edit_qss_track_id' type="text" style="width:50%" value="<%=qss_track_id%>"/> <br />
+				<p><small>Leave blank for no game, manual_qss for manual data entry</small></p>
+				<input type="submit" value="Save QSS id" />
+			</form>
+			<p>Current state:</p>
+			<pre id="qss_state"><%=JSON.stringify(qss_track_state)%></pre>
+
+			<p><strong>Manual state entry:</strong></p>
+			<form id='edit_manual_rdc_state' role="form" method='POST' action='/manual_qss_state'>
+<pre>{
+	"title":"<input id="manual_qss_title" name="manual_qss_title" value="<%=qss_track_state.title%>"/>",
+	"a":{"name":"<input id="manual_qss_a_name" name="manual_qss_a_name" value="<%=qss_track_state.a.name%>"/>","score":"<input id="manual_qss_a_score" name="manual_qss_a_score" value="<%=qss_track_state.a.score%>"/>"},
+	"b":{"name":"<input id="manual_qss_b_name" name="manual_qss_b_name" value="<%=qss_track_state.b.name%>"/>","score":"<input id="manual_qss_b_score" name="manual_qss_b_score" value="<%=qss_track_state.b.score%>"/>"},
+	"period":"0",
+	"jam":"0",
+	"time":"0:00",
+	"period_time":"0:00"
+}</pre>
+<input type="submit" value="Save manual QSS state" />
+
+			</form>
+
+
+			<h1>LiveTable</h1>
+			<% for(var i = 0; i < livetable.length; i++) {%>
+				<p><strong><%=livetable[i]._id%></strong></p>
+				<p>
+				<form class='livetable' id='<%=livetable[i]._id%>' role="form" method='POST' action='/livetable/<%=livetable[i]._id%>'>
+					Played: <input class="played" name='played' type="text" value="<%=livetable[i].played%>"/> <br />
+					Won: <input class="won" name='won' type="text" value="<%=livetable[i].won%>"/> <br />
+					Dif: <input class="dif" name='dif' type="text" value="<%=livetable[i].dif%>"/> <br />
+					<input type="submit" value="Save <%=livetable[i]._id%>" />
+				</form>
+				</p>
+			<% } %>
+
+			<h1>LiveBracket</h1>
+			<% for(var i = 0; i < livebracket.length; i++) {%>
+				<p><strong><%=livebracket[i].title%></strong></p>
+				<p>
+				<form class='livebracket' id='bout<%=livebracket[i].number%>' role="form" method='POST' action='/livebracket/<%=livebracket[i].number%>'>
+					title: <input class="title" name='title' type="text" value="<%=livebracket[i].title%>"/> <br />
+					a: <input class="a" name='a' type="text" value="<%=livebracket[i].a%>"/> <br />
+					b: <input class="b" name='b' type="text" value="<%=livebracket[i].b%>"/> <br />
+					details: <input class="details" name='details' type="text" value="<%=livebracket[i].details%>"/> <br />
+					<input type="submit" value="Save Bout <%=livebracket[i].number%>" />
+				</form>
+				</p>
+			<% } %>
+
+			<h1>Feed Languadges</h1>
+
+			<h3>RDC alternate languadge: <span id="config_rdc_alt_lang"><%=rdc_alt_lang%></span></h3>
+			<form id='form_refresh_wait_time' role="form" method='POST' action='/rdc_alt_lang'>
+				New time (ms): <input id="edit_rdc_alt_lang" name='edit_rdc_alt_lang' type="text" style="width:50%" value="<%=rdc_alt_lang%>"/> <br />
+				<input type="submit" value="Save RDC alternate languadge" />
+			</form>
+
+			<h3>QSS alternate languadge: <span id="config_qss_alt_lang"><%=qss_alt_lang%></span></h3>
+			<form id='form_refresh_wait_time' role="form" method='POST' action='/qss_alt_lang'>
+				New time (ms): <input id="edit_qss_alt_lang" name='edit_qss_alt_lang' type="text" style="width:50%" value="<%=qss_alt_lang%>"/> <br />
+				<input type="submit" value="Save QSS alternate languadge" />
+			</form>
+			
+
+			<h1>Config</h1>
+
+			<h3>Refresh Wait Time (ms): <span id="config_refresh_wait_time"><%=refresh_wait_time%></span></h3>
+			<form id='form_refresh_wait_time' role="form" method='POST' action='/refresh_wait_time'>
+				New time (ms): <input id="edit_refresh_wait_time" name='edit_refresh_wait_time' type="text" style="width:50%" value="<%=refresh_wait_time%>"/> <br />
+				<input type="submit" value="Save refresh time" />
+			</form>
+
+			<h3>Tournament ID:  <span id="tournament_id"><%=tournament_id%></span></h3>
+			<p><small>Sample: 4129d7a99e3b4b53b02ae72e8b690553</small></p>
+			<p><small>MRDWC: 8eb20d4e65054c85888936472c0215fc</small></p>
+			<form id='form_tournament_id' role="form" method='POST' action='/tournament_id'>
+				New ID: <input id="edit_tournament_id" name='edit_tournament_id' type="text" style="width:50%" value="<%=tournament_id%>" /> <br />
+				<input type="submit" value="Save tournament id" />
+			</form>
+
+		</div>
+	</body>
+</html>
