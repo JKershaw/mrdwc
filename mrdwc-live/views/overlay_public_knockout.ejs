@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MRDWC Live</title>
+
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+		<script src='/mrdwc.js'></script>
+		<style>
+
+		body{
+			border: 0px;
+			margin: 0px;
+			padding: 0px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 17px;
+		}
+
+		#container {
+			position: relative;
+		}
+
+		.team {
+			position: absolute;
+
+			height: 23px;
+			width: 87px;
+			padding: 3px;
+			background-color: rgba(255, 255, 255, 0.9);
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+		}
+		</style>
+
+	</head>
+
+	<body>
+		<div id="container">
+			<img src="http://mrdwc.com/knockout_final.jpg"/>
+			<% 
+			for(var round_i = 0; round_i < rounds.length; round_i ++) {
+				for(var bout_i = 0; bout_i < rounds[round_i].bouts.length; bout_i ++) {
+					var bout = rounds[round_i].bouts[bout_i];
+					if (bout.top) {
+						%>
+							<div class="team" style="top: <%=bout.top%>px; left: <%=bout.left%>px"><span class="bout_<%=bout.number%>"><span class="team_a">Team</span></span></div>
+							<div class="team" style="top: <%=bout.top + 30%>px; left: <%=bout.left%>px"><span class="bout_<%=bout.number%>"><span class="team_b">Team</span></span></div>
+						<%
+					}
+				}
+			}
+			%>
+		</div>
+
+		<script>
+			$(document).ready(function () {
+				refresh($.ajax, window, function () {});
+			});
+		</script>
+	</body>
+</html>

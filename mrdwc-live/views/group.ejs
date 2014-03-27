@@ -1,0 +1,24 @@
+<% for(var group_id = 0; group_id < groups.length; group_id++) { %>
+	<div class="col-md-3 group_<%=groups[group_id].name%>">
+		<h3><%=groups[group_id].name%> Group</h3>
+		<table class="table" id="<%=groups[group_id].name%>_table">
+			<tr>
+				<th>Team</th>
+				<th>Played</th>
+				<th>Won</th>
+				<th>Score Dif</th>
+			</tr>
+
+			<% for(var team_id = 0; team_id < groups[group_id].teams.length; team_id++) { %>
+
+			<tr class="<%=groups[group_id].teams[team_id].name%>">
+				<td class="group_team_name"><%=groups[group_id].teams[team_id].name%></td>
+				<td class="group_team_played"><%=groups[group_id].teams[team_id].played%></td>
+				<td class="group_team_won"><%=groups[group_id].teams[team_id].won%></td>
+				<td class="group_team_dif"><%=groups[group_id].teams[team_id].dif%></td>
+			</tr>
+			<%}%>
+			
+		</table>
+	</div>
+<%}%>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>QUnit Example</title>
+        <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css">
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture">
+            <table class="table" id="Red_table">
+            <tbody><tr>
+                <th>Team</th>
+                <th>Played</th>
+                <th>Won</th>
+                <th>Score Dif</th>
+            </tr>
+
+            <tr class="BEL">
+                <td class="group_team_name">BEL</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">1</td>
+                <td class="group_team_dif">0</td>
+            </tr>
+
+            <tr class="CAN">
+                <td class="group_team_name">CAN</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">2</td>
+                <td class="group_team_dif">0</td>
+            </tr>
+
+            <tr class="IRE">
+                <td class="group_team_name">IRE</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">8</td>
+                <td class="group_team_dif">0</td>
+            </tr>
+
+            <tr class="ENG">
+                <td class="group_team_name">ENG</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">0</td>
+                <td class="group_team_dif">0</td>
+            </tr>
+            
+        </tbody></table>
+
+        <table class="table" id="Blue_table">
+            <tbody><tr>
+                <th>Team</th>
+                <th>Played</th>
+                <th>Won</th>
+                <th>Score Dif</th>
+            </tr>
+
+            <tr class="A">
+                <td class="group_team_name">A</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">0</td>
+                <td class="group_team_dif">0</td>
+            </tr>
+
+            <tr class="D">
+                <td class="group_team_name">D</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">1</td>
+                <td class="group_team_dif">0</td>
+            </tr>
+
+            <tr class="C">
+                <td class="group_team_name">C</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">1</td>
+                <td class="group_team_dif">0</td>
+            </tr>
+
+            <tr class="B">
+                <td class="group_team_name">B</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">0</td>
+                <td class="group_team_dif">0</td>
+            </tr>
+            
+        </tbody></table>
+
+        <table class="table" id="Green_table">
+            <tbody><tr>
+                <th>Team</th>
+                <th>Played</th>
+                <th>Won</th>
+                <th>Score Dif</th>
+            </tr>
+
+            <tr class="A">
+                <td class="group_team_name">A</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">2</td>
+                <td class="group_team_dif">-123</td>
+            </tr>
+
+            <tr class="D">
+                <td class="group_team_name">D</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">2</td>
+                <td class="group_team_dif">321</td>
+            </tr>
+
+            <tr class="C">
+                <td class="group_team_name">C</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">2</td>
+                <td class="group_team_dif">200</td>
+            </tr>
+
+            <tr class="B">
+                <td class="group_team_name">B</td>
+                <td class="group_team_played">0</td>
+                <td class="group_team_won">1</td>
+                <td class="group_team_dif">-300</td>
+            </tr>
+            
+        </tbody></table>
+
+        </div>
+
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+        <script src="../../../public/mrdwc.js"></script>
+        <script src="tests.js"></script>
+    </body>
+</html>

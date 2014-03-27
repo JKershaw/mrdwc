@@ -1,0 +1,5 @@
+export MRDWC_QUERY_URI=http://mrdwc-query.herokuapp.com
+pkill node
+set -e
+mocha tests/unit/ --ui qunit --reporter nyan --timeout 5000
+echo "Unit tests complete"

@@ -1,0 +1,17 @@
+<div class="row">
+	<% for(var round_id = 0; round_id < rounds.length; round_id++) { %>
+	<div class="knockout_round col-md-4">
+		<% for(var bout_id = 0; bout_id < rounds[round_id].bouts.length; bout_id++) { %>
+		<div class="panel panel-default bout_<%=rounds[round_id].bouts[bout_id].number%>">
+			<div class="panel-heading">
+				<h3 class="panel-title"><%=rounds[round_id].bouts[bout_id].title%></h3>
+			</div>
+			<div class="panel-body">
+				<span class="team_a"><%=rounds[round_id].bouts[bout_id].a%></span> : <span class="team_b"><%=rounds[round_id].bouts[bout_id].b%></span><br />
+				<small><span class="details"><%=rounds[round_id].bouts[bout_id].details%></span></small>
+			</div>
+		</div>
+		<%}%>
+	</div>
+	<%}%>
+</div>

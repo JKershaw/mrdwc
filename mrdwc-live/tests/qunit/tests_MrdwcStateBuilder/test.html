@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>QUnit Example</title>
+        <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css">
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture">
+
+            <button type="button" class="btn btn-default" id="qss_button_a">Alternate</button>
+            <button type="button" class="btn btn-default" id="rdc_button_a">Alternate</button>
+
+            <p>Roller Derby City Track: <span class="track_rdc_title"></span></p>
+            <p>Quad Skate Store Track: <span class="track_qss_title"></span></p>
+
+            <div  id="track_rdc">
+                <span class="a_side_name">Team Name</span>
+                <span class="a_side_score">0</span>
+                <span class="b_side_name">Team Name</span>
+                <span class="b_side_score">0</span>
+                <span class="game_period">1</span>
+                <span class="game_jam">1</span>
+                <span class="game_time">0:00</span>
+                <span class="game_period_time">30:00</span>
+            </div>
+            <div  id="track_qss">
+                <span class="a_side_name">Team Name</span>
+                <span class="a_side_score">0</span>
+                <span class="b_side_name">Team Name</span>
+                <span class="b_side_score">0</span>
+                <span class="game_period">1</span>
+                <span class="game_jam">1</span>
+                <span class="game_time">0:00</span>
+                <span class="game_period_time">30:00</span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>LiveTable</h2>
+                    <p>Teams are ranked by number of wins. If two teams have the same number of wins, score differential is used</p>
+                </div>
+
+
+                <div class="col-md-3 group_Red">
+                    <h3>Red Group</h3>
+                    <table class="table">
+                        <tbody><tr>
+                            <th>Team</th>
+                            <th>Played</th>
+                            <th>Won</th>
+                            <th>Score Dif</th>
+                        </tr>
+
+
+
+                        <tr class="USA">
+                            <td class="group_team_name">USA</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+
+                        <tr class="FIN">
+                            <td class="group_team_name">FIN</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+                        <tr class="WAL">
+                            <td class="group_team_name">WAL</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+
+                    </tbody></table>
+                </div>
+
+                <div class="col-md-3 group_Orange">
+                    <h3>Orange Group</h3>
+                    <table class="table">
+                        <tbody><tr>
+                            <th>Team</th>
+                            <th>Played</th>
+                            <th>Won</th>
+                            <th>Score Dif</th>
+                        </tr>
+
+
+                        <tr class="BEL">
+                            <td class="group_team_name">BEL</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+
+                        <tr class="CAN">
+                            <td class="group_team_name">CAN</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+                        <tr class="SCO">
+                            <td class="group_team_name">SCO</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+
+                        <tr class="JPN">
+                            <td class="group_team_name">JPN</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+
+                    </tbody></table>
+                </div>
+
+                <div class="col-md-3 group_Green">
+                    <h3>Green Group</h3>
+                    <table class="table">
+                        <tbody><tr>
+                            <th>Team</th>
+                            <th>Played</th>
+                            <th>Won</th>
+                            <th>Score Dif</th>
+                        </tr>
+
+
+
+                        <tr class="ARG">
+                            <td class="group_team_name">ARG</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+                        <tr class="ENG">
+                            <td class="group_team_name">ENG</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+
+                        <tr class="SWE">
+                            <td class="group_team_name">SWE</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+
+                        <tr class="NED">
+                            <td class="group_team_name">NED</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+
+                    </tbody></table>
+                </div>
+                <div class="col-md-3 group_Green">
+                    <h3>Green Group</h3>
+                    <table class="table">
+                        <tbody><tr>
+                            <th>Team</th>
+                            <th>Played</th>
+                            <th>Won</th>
+                            <th>Score Dif</th>
+                        </tr>
+
+
+
+                        <tr class="FRA">
+                            <td class="group_team_name">FRA</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+                        <tr class="IRE">
+                            <td class="group_team_name">IRE</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+
+                        <tr class="GER">
+                            <td class="group_team_name">GER</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+
+                        <tr class="AUS">
+                            <td class="group_team_name">AUS</td>
+                            <td class="group_team_played">0</td>
+                            <td class="group_team_won">0</td>
+                            <td class="group_team_dif">0</td>
+                        </tr>
+
+
+                    </tbody></table>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="knockout_round col-md-4">
+
+                    <div class="panel panel-default bout_4">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Quarter-final (Bout 4)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Blue 1</span> : <span class="team_b">Green 2</span><br>
+                            <small><span class="details">Saturday 12:30 (QSS)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_5">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Quarter-final (Bout 5)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Orange 1</span> : <span class="team_b">Red 2</span><br>
+                            <small><span class="details">Saturday 14:00 (RDC)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_6">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Quarter-final (Bout 6)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Green 1</span> : <span class="team_b">Blue 2</span><br>
+                            <small><span class="details">Saturday 14:30 (QSS)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_7">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Quarter-final (Bout 7)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Red 1</span> : <span class="team_b">Orange 2</span><br>
+                            <small><span class="details">Saturday 16:00 (RDC)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_1">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Bout 1</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Blue 3</span> : <span class="team_b">Orange 4</span><br>
+                            <small><span class="details">Saturday 10:00 (RDC)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_2">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Bout 2</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Orange 3</span> : <span class="team_b">Blue 4</span><br>
+                            <small><span class="details">Saturday 10:30 (QSS)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_3">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Bout 3</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Red 3</span> : <span class="team_b">Green 4</span><br>
+                            <small><span class="details">Saturday 12:00 (RDC)</span></small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="knockout_round col-md-4">
+
+                    <div class="panel panel-default bout_13">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Semi-final (Bout 13)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Winner 6</span> : <span class="team_b">Winner 4</span><br>
+                            <small><span class="details">Sunday 11:00 (RDC)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_14">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Semi-final (Bout 14)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Winner 7</span> : <span class="team_b">Winner 5</span><br>
+                            <small><span class="details">Sunday 11:30 (QSS)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_8">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Bout 8</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Loser 1</span> : <span class="team_b">Loser 2</span><br>
+                            <small><span class="details">Saturday 16:30 (QSS)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_9">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Bout 9</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Winner 1</span> : <span class="team_b">Winner 2</span><br>
+                            <small><span class="details">Saturday 18:00 (RDC)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_10">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Bout 10</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Winner 3</span> : <span class="team_b">Green 3</span><br>
+                            <small><span class="details">Saturday 18:30 (QSS)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_11">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Bout 11</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Loser 6</span> : <span class="team_b">Loser 4</span><br>
+                            <small><span class="details">Sunday 09:00 (RDC)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_12">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Bout 12</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Loser 7</span> : <span class="team_b">Loser 5</span><br>
+                            <small><span class="details">Sunday 09:30 (QSS)</span></small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="knockout_round col-md-4">
+
+                    <div class="panel panel-default bout_19">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">CUP (Bout 19)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Winner 13</span> : <span class="team_b">Winner 14</span><br>
+                            <small><span class="details">Sunday 19:00 (RDC)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_17">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">3rd Place (Bout 17)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Loser 13</span> : <span class="team_b">Loser 14</span><br>
+                            <small><span class="details">Sunday 15:30 (QSS)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_18">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Plate (Bout 18)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Winner 11</span> : <span class="team_b">Winner 12</span><br>
+                            <small><span class="details">Sunday 17:00 (RDC)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_16">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Bowl (Bout 16)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Winner 9</span> : <span class="team_b">Winner 10</span><br>
+                            <small><span class="details">Sunday 15:00 (RDC)</span></small>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default bout_15">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Jug (Bout 15)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span class="team_a">Winner 8</span> : <span class="team_b">Loser 3</span><br>
+                            <small><span class="details">Sunday 13:00 (RDC)</span></small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+        <script src="../../../public/mrdwc.js"></script>
+        <script src="tests.js"></script>
+    </body>
+</html>

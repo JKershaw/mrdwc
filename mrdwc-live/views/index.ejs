@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<script>
+		var _rollbarConfig = {
+		    accessToken: "",
+		    captureUncaught: true,
+		    payload: {
+		        environment: "production"
+		    }
+		};
+		!function(a,b){function c(b){this.shimId=++f,this.notifier=null,this.parentShim=b,this.logger=function(){},a.console&&void 0===a.console.shimId&&(this.logger=a.console.log)}function d(b){var d=c;return e(function(){if(this.notifier)return this.notifier[b].apply(this.notifier,arguments);var c=this,e="scope"===b;e&&(c=new d(this));var f=Array.prototype.slice.call(arguments,0),g={shim:c,method:b,args:f,ts:new Date};return a._rollbarShimQueue.push(g),e?c:void 0})}function e(a,b){return b=b||this.logger,function(){try{return a.apply(this,arguments)}catch(c){b("Rollbar internal error:",c)}}}var f=0;c.init=function(a,b){var d=b.globalAlias||"Rollbar";if("object"==typeof a[d])return a[d];a._rollbarShimQueue=[],b=b||{};var f=new c;return e(function(){if(f.configure(b),b.captureUncaught){var c=a.onerror;a.onerror=function(){f.uncaughtError.apply(f,arguments),c&&c.apply(a,arguments)}}return a[d]=f,f},f.logger)()},c.prototype.loadFull=function(a,b,c,d){var f=e(function(){var a=b.createElement("script"),e=b.getElementsByTagName("script")[0];a.src=d.rollbarJsUrl,a.async=!c,a.onload=g,e.parentNode.insertBefore(a,e)},this.logger),g=e(function(){if(void 0===a._rollbarPayloadQueue)for(var b,c,d,e,f=new Error("rollbar.js did not load");b=a._rollbarShimQueue.shift();)for(d=b.args,e=0;e<d.length;++e)if(c=d[e],"function"==typeof c){c(f);break}},this.logger);e(function(){c?f():a.addEventListener?a.addEventListener("load",f,!1):a.attachEvent("onload",f)},this.logger)()};for(var g="log,debug,info,warn,warning,error,critical,global,configure,scope,uncaughtError".split(","),h=0;h<g.length;++h)c.prototype[g[h]]=d(g[h]);var i="//d37gvrvc0wt4s1.cloudfront.net/js/v1.0/rollbar.min.js";_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||i;var j=c.init(a,_rollbarConfig);j.loadFull(a,b,!1,_rollbarConfig)}(window,document);
+		</script>
+
+
+
+		<title>MRDWC Live</title>
+
+
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', '', 'mrdwc.com');
+	  ga('send', 'pageview');
+
+	</script>
+
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script>
+	if (!window.jQuery) {
+		document.write('<script src="http://mrdwc.com/jquery-1.10.1.min.js"><\/script>');
+	}
+	</script>
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src='mrdwc.js'></script>
+
+	<style>
+		body {
+			background-image: url('http://mrdwc.com/wp-content/uploads/2013/12/Try11.jpg');
+
+			background: url(http://mrdwc.com/wp-content/uploads/2013/12/Try11.jpg) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		.container {
+			background-color: rgba(255, 255, 255, 0.9);
+		}
+
+		.knockout_game {
+			padding: 20px;
+		}
+
+		.table tr {
+			text-align: center;
+		}
+	</style>
+
+	</head>
+
+	<body>
+		<div class="container">
+			<h1 id='title'>MRDWC Live! <small>Real-time coverage of the first Men's Roller Derby World Cup</small></h1>
+			<div class="row">
+				<div class="col-md-6">
+					<p>Click the tab for the track you want to watch below.</p>
+					<p>Roller Derby City Track: <span class="track_rdc_title"></span></p>
+					<p>Quad Skate Store Track: <span class="track_qss_title"></span></p>
+				</div>
+				<div class="col-md-6"><p>If you like what you see, please donate to help cover the video feed costs:</p>
+					<p>
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="FWE25HKJ76WDQ"> <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online."> <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1"> </form></p>
+				</div>
+			</div>
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#track_rdc" data-toggle="tab">
+					<span class="visible-xs">RDC Track</span>
+					<span class="hidden-xs">Roller Derby City Track</span>
+				</a></li>
+				<li><a href="#track_qss" data-toggle="tab">
+					<span class="visible-xs">QSS Track</span>
+					<span class="hidden-xs">Quad Skate Store Track</span>
+					</a></li>
+				<li><a href="#scores_overview" data-toggle="tab">LiveBracket</a></li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active" id="track_rdc">
+					<% include tracktab_rdc %>
+				</div>
+				<div class="tab-pane" id="track_qss">
+					<% include tracktab_qss %>
+				</div>
+				<div class="tab-pane" id="scores_overview">
+					<% include scoretab %>
+				</div>
+			</div>
+
+			<br /><br />
+			<hr />
+
+			<div class="row">
+				<div class="col-md-10">
+						<p><small>Feel free to send feedback and questions to sausage@mrdwc.com</small></p>
+						<p><small>Live stats produced by a collaboration of <a href="http://www.rdnation.com/">RDNation</a> and the <a href="http://www.rollerderbytestomatic.com">Roller Derby Test O'Matic</a></small></p>
+				</div>
+				<div class="col-md-2">
+					<p style="text-align: right;"><script id="_wauxu3">var _wau = _wau || []; _wau.push(["small", "zp8y156xe421", "xu3"]);
+					(function() {var s=document.createElement("script"); s.async=true;
+					s.src="http://widgets.amung.us/small.js";
+					document.getElementsByTagName("head")[0].appendChild(s);
+					})();</script></p>
+					<p style='text-align: right'><small><span id='reloading_state' style='display:none; color:#DDD'>refreshing</span></small></p>
+				</div>
+			</div>
+
+
+		</div>
+
+		<script>
+			$(document).ready(function () {
+				
+				refresh($.ajax, window, function () {});
+
+				$('#rdc_button_a').on('click', function(){
+					$('#video_rdc').show();
+					$('#video_rdc').attr('src', "http://new.livestream.com/accounts/6837737/events/2817367/player?width=640&height=360&autoPlay=true&mute=false");
+				});
+
+				$('#rdc_button_e').on('click', function(){
+					$('#video_rdc').show();
+					$('#video_rdc').attr('src', "http://new.livestream.com/accounts/6837737/events/2817364/player?width=640&height=360&autoPlay=true&mute=false");
+
+				});
+
+				$('#rdc_button_n').on('click', function(){
+					$('#video_rdc').hide();
+					$('#video_rdc').attr('src', "");
+				});
+
+				$('#qss_button_a').on('click', function(){
+					$('#video_qss').show();
+					$('#video_qss').attr('src', "http://new.livestream.com/accounts/6837737/events/2817371/player?width=640&height=360&autoPlay=true&mute=false");
+				});
+
+				$('#qss_button_e').on('click', function(){
+					$('#video_qss').show();
+					$('#video_qss').attr('src', "http://new.livestream.com/accounts/6837737/events/2817369/player?width=640&height=360&autoPlay=true&mute=false");
+
+				});
+
+				$('#qss_button_n').on('click', function(){
+					$('#video_qss').hide();
+					$('#video_qss').attr('src', "");
+				});
+			});
+
+			
+
+		</script>
+	</body>
+</html>
