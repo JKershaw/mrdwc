@@ -5,6 +5,8 @@ This is all of the code used by live.mrdwc.com during the first Men's Roller Der
 
 I (Sausage Roller, author) will add a license to this code at some point, probably when it's had a spring clean. So, whilst you are free to look at this code and even deploy it if you want,  if you intend to use it in the real world for anything other than a personal project, ask for permission.
 
+The entire site is written in NodeJS, so it's JavaScript all the way down.
+
 If you have any feedback or questions, just ask.
 
 #Architecture
