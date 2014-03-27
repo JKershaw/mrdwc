@@ -1,4 +1,49 @@
-mrdwc
-=====
-
 Men's Roller Derby World Cup
+=====
+##About
+
+This is all of the code used by live.mrdwc.com during the first Men's Roller Derby World Cup in March 2014. The code is in the state it was in after the tournament has finished. Most of the code was written before the tournment, some was written during the tournament.
+
+I (Sausage Roller, author) will add a license to this code at some point, probably when it's had a spring clean. So, whilst you are free to look at this code and even deploy it if you want,  if you intend to use it in the real world for anything other than a personal project, ask for permission.
+
+If you have any feedback or questions, just ask.
+
+#Architecture
+
+The site was built to be reliable. There's multiple undocumented failsafes allowing all kinds of terrible things to happen and the site stays online. The most basic is the divide between _mrdwc.com_ and _live.mrdwc.com_. The former living in a US East coast data centre and hosted by MediaTemple, the latter existing on European AWS servers via the joyful Heroku.
+
+You'll see there's four different apps that make up the service. Thjis allows for easy scaling and a division of labour. Here's a breif description of each module.
+
+##mrdwc-live
+
+This is the static website you see when you visit live.mrdwc.com. It's super simple and does nothing dynamically. .All the data is fetched via a browser ajax call to the next module.
+
+##mrdwc-query
+
+The horizontal scaling of the site all comes from this module. It has a simple job; return a JSON representation of the current tournament state, to be displayed on the site. This includes current game stats, as well as brackets, tables, and even the text to display on the alternate laguage feed options. The module gets the state from a mongo database (hosted on MongoLab, again in the Euro AWS)
+
+##mrdwc-command
+
+Easily the most complex component, this is the admin interface used throughout the tournament via its own URL. If the front-end of the site dies for any reason, the state can still be calculated and served via a back-up process. This module also allows manual data entry from the scoreboards to manage if the scoreboard software in the building has issues (which as it turns out, it did).
+
+This module loads all the components which make up the tournament state, build the complete state, and update the mongo database.
+
+##mrdwc-poll 
+
+This simple little module pokes the mrdwc-command module every few seconds and prompts it to rebuild the status.
+
+#Tests
+
+You will see from the code, every app has a full set of tests. Test Driven Development is fantastic and everyonre should do it.
+
+Using Loader.io I was able to load-test each of the major components that would need to face a high load. 
+
+#Services used
+
+* **Heroku** - Hosting of the apps. Allowed for very good value instant scaling
+* **MongoLab** - The database (the most expensive component)
+* **Media Temple** - Hosting of the mrdwc.com (wordpress) site on their Grid Server for spiked traffic
+* **UptimeRobot** - Pings every system and measure uptime, as well as keep every app alive (important for the mrdwc-poll)
+* **Liberato** - Monitor load on the Heroku apps
+* **Rollbar** - Alerting and monitoring of front-end javascript issues
+* **Loader.io** - Provided load testing of the major components
