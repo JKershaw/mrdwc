@@ -3,11 +3,13 @@ Men's Roller Derby World Cup
 
 This is all of the code used by live.mrdwc.com during the first Men's Roller Derby World Cup in March 2014. The code is in the state it was in after the tournament has finished. Most of the code was written before the tournament, some was written during the tournament.
 
-I (Sausage Roller, author) will add a license to this code at some point, probably when it's had a spring clean. So, whilst you are free to look at this code and even deploy it if you want,  if you intend to use it in the real world for anything other than a personal project, ask for permission.
+I (Sausage Roller, author) will add a license to this code at some point, probably when it's had a spring clean. So, whilst you are free to look at this code and even deploy it if you want,  if you intend to use it in the real world for anything other than a personal project, please ask first.
 
 The entire site is written in NodeJS, so it's JavaScript all the way down.
 
 If you have any feedback or questions, just ask.
+
+There's more details on all this available here: http://jkershaw.com/mens-roller-derby-world-cup/
 
 #Architecture
 
@@ -52,7 +54,6 @@ Using Loader.io I was able to load-test each of the major components that would 
 * **Liberato** - Monitor load on the Heroku apps
 * **Rollbar** - Alerting and monitoring of front-end javascript issues
 * **Loader.io** - Provided load testing of the major components
-* 
 
 #About the Author
 
