@@ -21,13 +21,13 @@ This is the static website you see when you visit live.mrdwc.com. It's super sim
 
 ##mrdwc-query
 
-The horizontal scaling of the site all comes from this module. It has a simple job; return a JSON representation of the current tournament state, to be displayed on the site. This includes current game stats, as well as brackets, tables, and even the text to display on the alternate language feed options. The module gets the state from a mongo database (hosted on MongoLab, again in the Euro AWS)
+The horizontal scaling of the site all comes from here. It has a simple job; return a JSON representation of the current tournament state, to be displayed on the site. This includes current game stats, as well as brackets, tables, and even the text to display on the alternate language feed options. The module gets the state from a Mongo database (hosted on MongoLab).
 
 ##mrdwc-command
 
-Easily the most complex component, this is the admin interface used throughout the tournament via its own URL. If the front-end of the site dies for any reason, the state can still be calculated and served via a back-up process. This module also allows manual data entry from the scoreboards to manage if the scoreboard software in the building has issues (which as it turns out, it did).
+Easily the most complex component, this is the admin interface used throughout the tournament via its own URL. If the front-end of the site dies for any reason, the state can still be calculated and served via a back-up process. This module also allows manual entry of game scores if the scoreboard software in the building has issues.
 
-This module loads all the components which make up the tournament state, build the complete state, and update the mongo database.
+This module loads all the components which make up the tournament state, builds the complete state, and updates the Mongo database.
 
 ##mrdwc-poll 
 
